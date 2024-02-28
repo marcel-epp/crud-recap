@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export default function Form({ handleAddPlace }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -8,12 +11,13 @@ export default function Form({ handleAddPlace }) {
     const data = Object.fromEntries(formData);
 
     handleAddPlace(data);
+    router.push("/");
   }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="locationName">Name:</label>
-      <input type="text" name="locationName" id="locationName" />
+      <label htmlFor="name">Name:</label>
+      <input type="text" name="name" id="name" />
 
       <label htmlFor="location">Location:</label>
       <input type="text" name="location" id="location" />
@@ -21,13 +25,13 @@ export default function Form({ handleAddPlace }) {
       <label htmlFor="mapURL">Map URL:</label>
       <input type="text" name="mapURL" id="mapURL" />
 
-      <label htmlFor="locationImageUrl">Image:</label>
-      <input type="text" name="locationImageUrl" id="locationImageUrl" />
+      <label htmlFor="image">Image:</label>
+      <input type="text" name="image" id="image" />
 
-      <label htmlFor="locationDescription">Description:</label>
+      <label htmlFor="description">Description:</label>
       <textarea
-        name="locationDescription"
-        id="locationDescription"
+        name="description"
+        id="description"
         cols="30"
         rows="10"
       ></textarea>

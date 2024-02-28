@@ -1,14 +1,13 @@
-import { initialPlaces } from "@/lib/db.js";
 import styled from "styled-components";
 import PlaceCard from "@/components/PlaceCard";
+import Link from "next/link";
 
-const initialPlace = initialPlaces;
-
-export default function HomePage() {
+export default function HomePage({ initialPlaces }) {
   return (
     <div>
+      <Link href="/create"> Add a new Place</Link>
       <StyledUl>
-        {initialPlace.map(({ id, name, location, image }) => (
+        {initialPlaces.map(({ id, name, location, image }) => (
           <PlaceCard key={id} name={name} location={location} image={image} />
         ))}
       </StyledUl>
