@@ -1,7 +1,7 @@
 import DetailsCard from "@/components/DetailsCard";
 import { useRouter } from "next/router";
 
-export default function DetailsPage({ initialPlaces }) {
+export default function DetailsPage({ initialPlaces, handleDeletePlace }) {
   const router = useRouter();
   console.log(initialPlaces);
 
@@ -14,7 +14,10 @@ export default function DetailsPage({ initialPlaces }) {
 
   return (
     <>
-      <DetailsCard detailsID={detailsID} />
+      <DetailsCard
+        detailsID={detailsID}
+        handleDeletePlace={handleDeletePlace}
+      />
     </>
   );
 }
