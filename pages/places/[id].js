@@ -1,5 +1,6 @@
 import DetailsCard from "@/components/DetailsCard";
 import { useRouter } from "next/router";
+import EditPlaces from "./edit";
 
 export default function DetailsPage({ initialPlaces, handleDeletePlace }) {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function DetailsPage({ initialPlaces, handleDeletePlace }) {
         detailsID={detailsID}
         handleDeletePlace={handleDeletePlace}
       />
+      <EditPlaces initialPlaces={initialPlaces} />
     </>
   );
 }
