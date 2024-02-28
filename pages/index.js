@@ -9,7 +9,13 @@ export default function HomePage({ initialPlaces }) {
       <MapLink href="/create"> Add a new Place</MapLink>
       <StyledUl>
         {initialPlaces.map(({ id, name, location, image }) => (
-          <PlaceCard key={id} name={name} location={location} image={image} />
+          <PlaceCard
+            key={id}
+            name={name}
+            location={location}
+            image={image}
+            id={id}
+          />
         ))}
       </StyledUl>
     </div>

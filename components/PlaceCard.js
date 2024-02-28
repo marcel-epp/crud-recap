@@ -1,10 +1,13 @@
 import Image from "next/image";
 import styled from "styled-components";
+import Link from "next/link";
 
-export default function PlaceCard({ image, name, location }) {
+export default function PlaceCard({ image, name, location, id }) {
   return (
     <Card>
-      <StyledImage src={image} width={500} height={500} alt={name} />
+      <Link href={`./places/${id}`}>
+        <StyledImage src={image} width={500} height={500} alt={name} />
+      </Link>
       <CardBody>
         <CardTitle>{name}</CardTitle>
         <CardText>{location}</CardText>
