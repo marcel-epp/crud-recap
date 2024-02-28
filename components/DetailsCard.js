@@ -4,27 +4,25 @@ import styled from "styled-components";
 
 export default function DetailsCard({ detailsID }) {
   return (
-    <Card>
-      <StyledImage
-        src={detailsID.image}
-        width={500}
-        height={500}
-        alt={detailsID.name}
-      />
-      <CardBody>
-        <CardTitle>{detailsID.name}</CardTitle>
-        <CardText>{detailsID.location}</CardText>
-        <CardText>{detailsID.description}</CardText>
-        <iframe
-          src={detailsID.mapURL}
-          width="600"
-          height="450"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </CardBody>
-    </Card>
+    <>
+      <MapLink href="/"> Back to HomePage</MapLink>
+      <Card>
+        <StyledImage
+          src={detailsID.image}
+          width={500}
+          height={500}
+          alt={detailsID.name}
+        />
+        <CardBody>
+          <CardTitle>{detailsID.name}</CardTitle>
+          <CardText>{detailsID.location}</CardText>
+          <CardText>{detailsID.description}</CardText>
+          <MapLink href={detailsID.mapURL} target="_blank">
+            View on Google Maps
+          </MapLink>
+        </CardBody>
+      </Card>
+    </>
   );
 }
 
@@ -49,6 +47,10 @@ const CardBody = styled.div`
   @media only screen and (min-width: 600px) {
     flex-direction: row;
   }
+`;
+export const MapLink = styled(Link)`
+  padding: 1em;
+  text-decoration: none;
 `;
 
 const CardTitle = styled.h2`
