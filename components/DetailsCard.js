@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-export default function DetailsCard({ detailsID }) {
+export default function DetailsCard({ detailsID, handleDeletePlace }) {
   return (
     <>
       <MapLink href="/"> Back to HomePage</MapLink>
@@ -22,6 +22,9 @@ export default function DetailsCard({ detailsID }) {
           </MapLink>
         </CardBody>
       </Card>
+      <button type="button" onClick={() => handleDeletePlace(detailsID.id)}>
+        delete
+      </button>
     </>
   );
 }
